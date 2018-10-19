@@ -24,7 +24,7 @@ class App extends Component {
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
 
-  
+
   // getTasks() {
   //   return [
   //     { _id: 1, text: 'This is task 1' },
@@ -63,6 +63,10 @@ class App extends Component {
 
 export default withTracker(() => {
   return {
-    tasks: Tasks.find({}).fetch(),
+    tasks: Tasks.find({}, {
+      sort: {
+        createdAt: -1
+      }
+    }).fetch(),
   };
 })(App);
