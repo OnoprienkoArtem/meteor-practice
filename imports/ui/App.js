@@ -79,6 +79,16 @@ class App extends Component {
 
           <AccountsUIWrapper />
 
+          { this.props.currentUser ?
+            <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
+              <input
+                type="text"
+                ref="textInput"
+                placeholder="Type to add new tasks"
+              />
+            </form> : ''
+          }
+
           <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
             <input
               type="text"
@@ -102,10 +112,13 @@ export default withTracker(() => {
         createdAt: -1
       }
     }).fetch(),
+
     incompleteCount: Tasks.find({
       checked: {
         $ne: true
       }
     }).count(),
+
+    currentUser: Meteor.user(),
   };
 })(App);
