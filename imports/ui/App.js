@@ -77,6 +77,8 @@ class App extends Component {
             Hide Completed Tasks
           </label>
 
+   
+
           <AccountsUIWrapper />
 
           { this.props.currentUser ?
@@ -87,8 +89,8 @@ class App extends Component {
                 placeholder="Type to add new tasks"
               />
             </form> : ''
-          }
-
+          }  
+           
      
         </header> 
         <ul>
